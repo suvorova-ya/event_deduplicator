@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "event-deduplicator"
+version = "0.1.0"
+description = ""
+authors = ["Yana <suvorova_ya@outlook.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = {extras = ["uvicorn"], version = "^0.115.12"}
+watchfiles = "^1.0.5"
+uvicorn = {extras = ["standard"], version = "^0.34.2"}
+aiokafka = "^0.12.0"
+pydantic-settings = "^2.9.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
