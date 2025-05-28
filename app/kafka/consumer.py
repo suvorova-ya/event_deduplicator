@@ -7,7 +7,9 @@ deduplicator = Deduplicator()
 
 
 
+
 async def consume():
+    await deduplicator.init_bloom_filter()
     consumer = AIOKafkaConsumer(
         'products_events',
         bootstrap_servers='localhost:9092',
@@ -22,15 +24,16 @@ async def consume():
 
             event = EventCreate.model_validate_json(event_str)
 
-            print(f"✅ Получено событие: {event.event_name=} {event.client_id=}")
+            print(f" Получено событие: {event.event_name=} {event.client_id=}")
+            if await deduplicator.check_redis(event.model_dump()):
 
-            await deduplicator.save_db(
-                client_id=event.client_id,
-                product_id=event.product_id,
-                event_datetime=event.event_datetime,
-                event_name=event.event_name,
-                event_json=event.model_dump(mode="json")  # dict для JSONB
-            )
+                await deduplicator.save_db(
+                    client_id=event.client_id,
+                    product_id=event.product_id,
+                    event_datetime=event.event_datetime,
+                    event_name=event.event_name,
+                    event_json=event.model_dump(mode="json")  # dict для JSONB
+                )
     finally:
         await consumer.stop()
 
