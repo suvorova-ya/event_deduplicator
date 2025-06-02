@@ -1,0 +1,36 @@
+
+# стандартные артефакты Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# временные файлы
+*.log
+*.sqlite3
+*.db
+
+# IDE/редакторы
+.idea/
+.vscode/
+
+# Git
+.git/
+.gitignore
+
+# тесты
+tests/
+
+# окружения
+.env
+.env.*
+
+# локальные артефакты
+dist/
+build/
+*.egg-info/
+
+# Jupyter и кеши
+.ipynb_checkpoints/
+.cache/
+.mypy_cache/
+.pytest_cache/

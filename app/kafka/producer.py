@@ -1,14 +1,11 @@
-from aiokafka import AIOKafkaProducer
 from app.api.schemas import EventCreate
+from fastapi import Request
 
 
-async def send_to_kafka(event: EventCreate):
-    producer = AIOKafkaProducer(bootstrap_servers='localhost:9092')
+async def send_to_kafka(request: Request, event: EventCreate):
     topic = 'products_events'
-
-    await producer.start()
     send_event = event.model_dump_json().encode('utf-8')
-    try:
-        await producer.send_and_wait(topic,send_event)
-    finally:
-        await producer.stop()
+    print(f"Отправка события в Kafka: {send_event}")
+
+    producer = request.app.state.producer
+    await producer.send_and_wait(topic, send_event)
