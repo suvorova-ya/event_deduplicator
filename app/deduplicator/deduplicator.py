@@ -7,7 +7,7 @@ import redis.asyncio as aioredis
 from sqlalchemy.exc import SQLAlchemyError
 
 from sqlalchemy.ext.asyncio import AsyncSession
-
+from app.logging_config import logger
 
 from app.core.database import connection
 from app.core.models import EventBase
@@ -68,18 +68,18 @@ class Deduplicator:
         hash_value = self.compute_hash(event)
         if await self.redis.exists(hash_value):
             current_ttl = await self.redis.ttl(hash_value)
-            print(f"Хэш:  {hash_value} для события {event.get('event_name')} есть в памяти, ttl:{current_ttl}")
+            logger.info(f"Хэш:  {hash_value} для события {event.get('event_name')} есть в памяти, ttl:{current_ttl}")
             return False
 
         if await self.redis.bf().exists(self.bloom_name,hash_value):
-            print(f"Хэш:  {hash_value} для события {event.get('event_name')} есть в памяти bloom_filter")
+            logger.info(f"Хэш:  {hash_value} для события {event.get('event_name')} есть в памяти bloom_filter")
             return False
 
 
         await self.redis.setex(hash_value,self.ttl,event.get('r'))
-        print(f"Добавляем в Bloom-фильтр: {hash_value}")
+        logger.info(f"Добавляем в Bloom-фильтр: {hash_value}")
         await self.redis.bf().add(self.bloom_name,hash_value)
-        print(f"Уникальное событие, добавлено в Redis и Bloom: {hash_value}")
+        logger.info(f"Уникальное событие, добавлено в Redis и Bloom: {hash_value}")
         return True
 
 

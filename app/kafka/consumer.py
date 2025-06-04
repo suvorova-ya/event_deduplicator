@@ -4,6 +4,7 @@ from app.api.schemas import EventCreate
 from app.deduplicator.deduplicator import Deduplicator
 from aiokafka.errors import GroupCoordinatorNotAvailableError
 import backoff
+from app.logging_config import logger
 
 
 deduplicator = Deduplicator()
@@ -18,7 +19,7 @@ deduplicator = Deduplicator()
 
 async def consume():
     await deduplicator.init_bloom_filter()
-    print("🔁 Consumer стартует и подписывается на Kafka...")
+    logger.info("Consumer стартует и подписывается на Kafka...")
     consumer = AIOKafkaConsumer(
         'products_events',
         bootstrap_servers='kafka:9092',
@@ -38,7 +39,7 @@ async def consume():
 
             event = EventCreate.model_validate_json(event_str)
 
-            print(f" Получено событие: {event.event_name=} {event.client_id=}")
+            logger.info(f" Получено событие: {event.event_name=} {event.client_id=}")
             if await deduplicator.check_redis(event.model_dump()):
 
                 await deduplicator.save_db(
@@ -58,5 +59,5 @@ async def start_consumer():
         try:
             await consume()
         except Exception as e:
-            print(f"Consumer crashed, restarting... Error: {e}")
+            logger.info(f"Consumer crashed, restarting... Error: {e}")
             await asyncio.sleep(5)  # Подождать перед перезапуском

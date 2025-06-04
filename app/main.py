@@ -6,7 +6,7 @@ from app.kafka.consumer import start_consumer
 from contextlib import asynccontextmanager
 import backoff
 import asyncio
-
+from app.logging_config import logger
 
 @backoff.on_exception(
     backoff.expo,
@@ -27,9 +27,9 @@ async def connect_to_kafka():
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     app.state.producer = await connect_to_kafka()
-    print(" Kafka producer подключён")
+    logger.info(" Kafka producer подключён")
     consumer_task = asyncio.create_task(start_consumer())
-    print("Kafka consumer подключён")
+    logger.info("Kafka consumer подключён")
     try:
         yield
     finally:
@@ -39,7 +39,7 @@ async def lifespan(app: FastAPI):
         try:
             await consumer_task
         except asyncio.CancelledError:
-            print("Kafka consumer stopped")
+            logger.info("Kafka consumer stopped")
 
 
 app = FastAPI(lifespan=lifespan)
