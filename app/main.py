@@ -1,3 +1,4 @@
+from app.logging_config import logger, perf_logger
 from aiokafka import AIOKafkaProducer
 from aiokafka.errors import KafkaConnectionError
 from fastapi import FastAPI

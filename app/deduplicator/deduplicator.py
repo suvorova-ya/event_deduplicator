@@ -1,13 +1,13 @@
-import asyncio
+from app.logging_config import logger, perf_logger
 import hashlib
 import json
 import os
+import time
 
 import redis.asyncio as aioredis
 from sqlalchemy.exc import SQLAlchemyError
 
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.logging_config import logger
 
 from app.core.database import connection
 from app.core.models import EventBase
@@ -63,34 +63,38 @@ class Deduplicator:
        if not exists:
            await self.redis.bf().create(self.bloom_name,0.01,10000)
 
-
-    async def check_redis(self,event:dict):
+    async def check_redis(self, event: dict):
+        start = time.perf_counter()
         hash_value = self.compute_hash(event)
         if await self.redis.exists(hash_value):
             current_ttl = await self.redis.ttl(hash_value)
             logger.info(f"Хэш:  {hash_value} для события {event.get('event_name')} есть в памяти, ttl:{current_ttl}")
+            perf_logger.info(f"⏱️ check_redis занял {time.perf_counter() - start:.3f} сек")
             return False
 
-        if await self.redis.bf().exists(self.bloom_name,hash_value):
+        if await self.redis.bf().exists(self.bloom_name, hash_value):
             logger.info(f"Хэш:  {hash_value} для события {event.get('event_name')} есть в памяти bloom_filter")
             return False
 
-
-        await self.redis.setex(hash_value,self.ttl,event.get('r'))
+        await self.redis.setex(hash_value, self.ttl, event.get('r'))
         logger.info(f"Добавляем в Bloom-фильтр: {hash_value}")
-        await self.redis.bf().add(self.bloom_name,hash_value)
-        logger.info(f"Уникальное событие, добавлено в Redis и Bloom: {hash_value}")
+        await self.redis.bf().add(self.bloom_name, hash_value)
+        perf_logger.info(
+            f"Уникальное событие, добавлено в Redis и Bloom: {hash_value} по времени заняло: {time.perf_counter() - start:.3f}")
         return True
 
-
     @connection
-    async def save_db(self, session: AsyncSession,**values):
+    async def save_db(self, session: AsyncSession, **values):
+        start = time.perf_counter()
         new_instance = self.model(**values)
         session.add(new_instance)
+
         try:
             await session.commit()
         except SQLAlchemyError as e:
             await session.rollback()
             raise e
+        finally:
+            perf_logger.info(f"💾 save_db занял {time.perf_counter() - start:.3f} сек")
         return new_instance
 

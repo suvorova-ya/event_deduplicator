@@ -19,24 +19,14 @@ from locust import HttpUser, LoadTestShape, between, task
 import logging
 from datetime import datetime
 
+from app.logging_config import logger
+
 BASE = Path(__file__).parent
 
 
 
 log_file = BASE.parent / "logs" / f"locust_{datetime.now():%Y-%m-%d_%H-%M-%S}.log"
 log_file.parent.mkdir(parents=True, exist_ok=True)
-
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    handlers=[
-        logging.FileHandler(log_file),
-        logging.StreamHandler()
-    ]
-)
-
-logger = logging.getLogger(__name__)
 
 
 BASE = Path(__file__).parent
