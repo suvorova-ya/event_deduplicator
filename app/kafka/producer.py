@@ -13,4 +13,4 @@ async def send_to_kafka(request: Request, event: EventCreate):
 
     producer = request.app.state.producer
     #await producer.send_and_wait(topic, send_event)
-    asyncio.create_task(producer.send(topic, value=event))
+    asyncio.create_task(producer.send(topic, value=send_event))

@@ -7,7 +7,6 @@ import backoff
 from app.logging_config import logger
 
 
-deduplicator = Deduplicator()
 
 @backoff.on_exception(
     backoff.expo,
@@ -17,47 +16,34 @@ deduplicator = Deduplicator()
 )
 
 
-async def consume():
-    await deduplicator.init_bloom_filter()
-    logger.info("Consumer стартует и подписывается на Kafka...")
-    consumer = AIOKafkaConsumer(
-        'products_events',
-        bootstrap_servers='kafka:9092',
-        auto_offset_reset="earliest",
-        group_id='products_consumer_group',
-        session_timeout_ms=30000,
-        heartbeat_interval_ms=10000,
-        max_poll_interval_ms=300000,
-        enable_auto_commit=False
-    )
-
-    await consumer.start()
+async def consume(consumer: AIOKafkaConsumer, deduplicator):
     try:
-        async for event in consumer:
+        async for msg in consumer:
+            try:
+                msg_str = msg.value.decode('utf-8')
 
-            event_str = event.value.decode('utf-8')
+                event = EventCreate.model_validate_json(msg_str)
 
-            event = EventCreate.model_validate_json(event_str)
+                logger.info(f" Получено событие: {event.event_name=} {event.client_id=}")
+                is_unique = await deduplicator.check_redis(event.model_dump())
+                if is_unique:
+                        await deduplicator.save_db(
+                            client_id=event.client_id,
+                            product_id=event.product_id,
+                            event_datetime=event.event_datetime,
+                            event_name=event.event_name,
+                            event_json=event.model_dump(mode="json")  # dict для JSONB
+                        )
+                await consumer.commit()
+            except Exception as exc_inner:
+                logger.error(f"Ошибка при обработке сообщения: {exc_inner}")
 
-            logger.info(f" Получено событие: {event.event_name=} {event.client_id=}")
-            if await deduplicator.check_redis(event.model_dump()):
-
-                await deduplicator.save_db(
-                    client_id=event.client_id,
-                    product_id=event.product_id,
-                    event_datetime=event.event_datetime,
-                    event_name=event.event_name,
-                    event_json=event.model_dump(mode="json")  # dict для JSONB
-                )
-    finally:
-        await consumer.stop()
+    except asyncio.CancelledError:
+        logger.info("Консьюмер остановлен по запросу")
+    except Exception as e:
+        logger.error(f"Критическая ошибка консьюмера: {e}")
 
 
 
-async def start_consumer():
-    while True:
-        try:
-            await consume()
-        except Exception as e:
-            logger.info(f"Consumer crashed, restarting... Error: {e}")
-            await asyncio.sleep(5)  # Подождать перед перезапуском
+
+

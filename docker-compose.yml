@@ -11,6 +11,7 @@ services:
       - KAFKA_CFG_NODE_ID=0
       - KAFKA_CFG_PROCESS_ROLES=controller,broker
       - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka:9094
+      - KAFKA_CFG_NUM_PARTITIONS=3
       - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,EXTERNAL://:9093,CONTROLLER://:9094
       - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092,EXTERNAL://localhost:9093
       - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=PLAINTEXT:PLAINTEXT,EXTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT
@@ -25,6 +26,17 @@ services:
       start_period: 60s
     networks:
       - app_net
+
+#  kafdrop:
+#    image: obsidiandynamics/kafdrop
+#    ports:
+#      - "9000:9000"
+#    environment:
+#      KAFKA_BROKERCONNECT: "kafka:9092"
+#    depends_on:
+#      - "kafka"
+#    networks:
+#      - app_net
 
   redis:
     image: redislabs/rebloom:latest
@@ -55,6 +67,7 @@ services:
       - "8000:8000"
     environment:
       - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+      - NUM_CONSUMERS:3
       - REDIS_HOST=redis
     volumes:
       - ./logs:/code/logs
