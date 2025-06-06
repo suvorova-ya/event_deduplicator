@@ -17,6 +17,7 @@ backoff = "^2.2.1"
 redis = "^6.2.0"
 locust = "^2.37.6"
 base = "^0.0.0"
+gunicorn = "^23.0.0"
 
 
 [tool.poetry.group.dev.dependencies]

@@ -12,7 +12,7 @@ import asyncio
 from app.logging_config import logger
 
 
-NUM_CONSUMERS = int(os.getenv("NUM_CONSUMERS", "3"))
+NUM_CONSUMERS = int(os.getenv("NUM_CONSUMERS", "5"))
 KAFKA_BOOTSTRAP = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "kafka:9092")
 TOPIC_NAME = os.getenv("KAFKA_TOPIC", "products_events")
 
