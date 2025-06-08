@@ -1,7 +1,6 @@
 from aiokafka import AIOKafkaConsumer
 import asyncio
 from app.api.schemas import EventCreate
-from app.deduplicator.deduplicator import Deduplicator
 from aiokafka.errors import GroupCoordinatorNotAvailableError
 import backoff
 from app.logging_config import logger
