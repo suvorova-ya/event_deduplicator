@@ -1,8 +1,8 @@
 import uuid
-from datetime import datetime
+from datetime import datetime, UTC
 from typing import Any,Dict
 
-from sqlalchemy import String, UUID
+from sqlalchemy import String, UUID, DateTime
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.dialects.postgresql import TIMESTAMP
@@ -18,5 +18,6 @@ class EventBase(Base):
     event_name: Mapped[str] = mapped_column(String(256), nullable=True)
     product_id: Mapped[str] = mapped_column(String(64), nullable=False)
     event_json: Mapped[Dict[str, Any]] = mapped_column(JSONB, nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(UTC))
 
 

@@ -99,6 +99,11 @@ services:
       - app_net
     volumes:
       - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   alembic:
     build:
@@ -112,6 +117,24 @@ services:
       - app_net
     depends_on:
       - postgres
+
+  cleanup-worker:
+    build: .
+    container_name: cleanup-worker
+    command: [ "python", "app/core/cleanup.py" ]
+    working_dir: /code
+    env_file:
+      - .env
+    environment:
+      - PYTHONPATH=/code
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - app_net
+
 
   master:
     image: locustio/locust

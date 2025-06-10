@@ -12,7 +12,7 @@ formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
 file_handler.setFormatter(formatter)
 
 logger = logging.getLogger("product_logger")
-logger.setLevel(logging.WARNING)
+logger.setLevel(logging.INFO)
 logger.addHandler(file_handler)
 logger.addHandler(logging.StreamHandler())  # для stdout
 

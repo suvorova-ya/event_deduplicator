@@ -1,3 +1,5 @@
+from sqlalchemy import text
+
 from app.logging_config import logger, perf_logger
 import hashlib
 import json
@@ -85,16 +87,19 @@ class Deduplicator:
 
     @connection
     async def save_db(self, session: AsyncSession, **values):
-        start = time.perf_counter()
         new_instance = self.model(**values)
         session.add(new_instance)
-
-        try:
-            await session.commit()
-        except SQLAlchemyError as e:
-            await session.rollback()
-            raise e
-        finally:
-            perf_logger.info(f"💾 save_db занял {time.perf_counter() - start:.3f} сек")
+        await session.commit()
         return new_instance
 
+    @connection
+    async def del_old_events(self, session: AsyncSession):
+        await session.execute(
+            text(
+                """
+                DELETE
+                FROM events
+                WHERE created_at < (timezone('UTC', now()) - INTERVAL '7 days')
+                """
+            )
+        )

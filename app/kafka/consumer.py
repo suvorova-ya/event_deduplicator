@@ -33,6 +33,8 @@ async def consume(consumer: AIOKafkaConsumer, deduplicator):
                             event_name=event.event_name,
                             event_json=event.model_dump(mode="json")  # dict для JSONB
                         )
+                        logger.info(f"Событие сохранено в БД: {event.client_id}")
+
                 await consumer.commit()
             except Exception as exc_inner:
                 logger.error(f"Ошибка при обработке сообщения: {exc_inner}")

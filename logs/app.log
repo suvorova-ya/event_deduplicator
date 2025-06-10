@@ -8447,3 +8447,47 @@
 2025-06-08 10:05:17,947 [INFO] Отправка события в Kafka: b'{"client_id":"client_4","event_datetime":"2025-06-08T10:05:17.752000Z","event_name":"play","product_id":"cbbbb4df-45c4-40b5-829c-ca027f6bdac1","sid":"sid_74","r":"r_74","ts":"1745745660979","some_extra":"value","request_id":"c08cedf5-0291-4bde-932b-0cf44411b99a"}'
 2025-06-08 10:05:17,949 [INFO] Отправка события в Kafka: b'{"client_id":"client_6","event_datetime":"2025-06-08T10:05:17.755000Z","event_name":"play","product_id":"a15098ae-2d3b-4d96-b71c-14da554fb8ff","sid":"sid_46","r":"r_46","ts":"1745745660950","some_extra":"value","request_id":"0bf3a3ab-e2dd-4439-820e-39dfcf2829ad"}'
 2025-06-08 10:05:17,951 [INFO] Отправка события в Kafka: b'{"client_id":"client_3","event_datetime":"2025-06-08T10:05:17.756000Z","event_name":"play","product_id":"92b0d1f7-f320-4087-bf13-938bf4adf8f7","sid":"sid_123","r":"r_123","ts":"1745745661028","some_extra":"value","request_id":"0f460bf9-6234-4405-98fd-6b1a1d2a6797"}'
+2025-06-10 12:28:09,768 [INFO]  Kafka Producer успешно запущен
+2025-06-10 12:28:10,548 [INFO]  Kafka Producer успешно запущен
+2025-06-10 12:28:11,767 [INFO]  Kafka Producer успешно запущен
+2025-06-10 12:28:23,581 [INFO]  Kafka Producer успешно запущен
+2025-06-10 12:31:15,143 [INFO]  Kafka Producer успешно запущен
+2025-06-10 12:31:17,416 [INFO]  Kafka Producer успешно запущен
+2025-06-10 12:31:17,613 [INFO]  Kafka Producer успешно запущен
+2025-06-10 12:31:17,900 [INFO]  Kafka Producer успешно запущен
+2025-06-10 12:35:48,326 [INFO]  Kafka Producer успешно запущен
+2025-06-10 12:35:51,342 [INFO]  Kafka Producer успешно запущен
+2025-06-10 12:35:56,872 [INFO]  Kafka Producer успешно запущен
+2025-06-10 12:35:58,100 [INFO]  Kafka Producer успешно запущен
+2025-06-10 12:37:31,758 [INFO] Отправка события в Kafka: b'{"client_id":"client_3","event_datetime":"2025-04-27T09:25:53.901036","event_name":"play","product_id":"5dd94edb-b001-4992-8ae7-5edaca9fd344","sid":"sid_293","r":"r_293","ts":"1745745661201","some_extra":"value"}'
+2025-06-10 12:45:13,318 [INFO]  Kafka Producer успешно запущен
+2025-06-10 12:45:14,394 [INFO]  Kafka Producer успешно запущен
+2025-06-10 12:45:26,136 [INFO]  Kafka Producer успешно запущен
+2025-06-10 12:45:26,208 [INFO]  Kafka Producer успешно запущен
+2025-06-10 12:46:11,493 [INFO] Отправка события в Kafka: b'{"client_id":"client_8","event_datetime":"2025-04-27T09:23:48.901036","event_name":"play","product_id":"2e4b1d05-2b9d-4788-8210-976643a6a9a1","sid":"sid_168","r":"r_168","ts":"1745745661074","some_extra":"value"}'
+2025-06-10 12:48:21,278 [INFO] Отправка события в Kafka: b'{"client_id":"client_8","event_datetime":"2025-04-27T09:23:48.901036","event_name":"play","product_id":"2e4b1d05-2b9d-4788-8210-976643a6a9a1","sid":"sid_168","r":"r_168","ts":"1745745661074","some_extra":"value"}'
+2025-06-10 12:48:51,207 [INFO] Отправка события в Kafka: b'{"client_id":"client_3","event_datetime":"2025-04-27T09:25:53.901036","event_name":"play","product_id":"5dd94edb-b001-4992-8ae7-5edaca9fd344","sid":"sid_293","r":"r_293","ts":"1745745661201","some_extra":"value"}'
+2025-06-10 12:53:20,624 [INFO] Отправка события в Kafka: b'{"client_id":"client_3","event_datetime":"2025-04-27T09:25:23.901036","event_name":"play","product_id":"6a884b26-88af-4b97-be71-fb06d5e0f794","sid":"sid_263","r":"r_263","ts":"1745745661171","some_extra":"value"}'
+2025-06-10 12:58:25,786 [INFO] Отправка события в Kafka: b'{"client_id":"client_0","event_datetime":"2025-04-27T09:21:50.901036","event_name":"play","product_id":"0a7ecd98-59a9-4518-9e53-55896e002e7c","sid":"sid_50","r":"r_50","ts":"1745745660954","some_extra":"value"}'
+2025-06-10 13:01:13,701 [INFO]  Kafka Producer успешно запущен
+2025-06-10 13:01:13,790 [INFO]  Kafka Producer успешно запущен
+2025-06-10 13:01:14,161 [INFO]  Kafka Producer успешно запущен
+2025-06-10 13:01:15,095 [INFO]  Kafka Producer успешно запущен
+2025-06-10 13:01:36,150 [INFO] Отправка события в Kafka: b'{"client_id":"client_0","event_datetime":"2025-04-27T09:21:50.901036","event_name":"play","product_id":"0a7ecd98-59a9-4518-9e53-55896e002e7c","sid":"sid_50","r":"r_50","ts":"1745745660954","some_extra":"value"}'
+2025-06-10 13:13:54,164 [INFO]  Kafka Producer успешно запущен
+2025-06-10 13:13:54,530 [INFO]  Kafka Producer успешно запущен
+2025-06-10 13:13:55,259 [INFO]  Kafka Producer успешно запущен
+2025-06-10 13:13:56,355 [INFO]  Kafka Producer успешно запущен
+2025-06-10 13:37:46,811 [INFO]  Kafka Producer успешно запущен
+2025-06-10 13:37:49,486 [INFO]  Kafka Producer успешно запущен
+2025-06-10 13:37:50,048 [INFO]  Kafka Producer успешно запущен
+2025-06-10 13:37:50,661 [INFO]  Kafka Producer успешно запущен
+2025-06-10 13:45:45,856 [INFO]  Kafka Producer успешно запущен
+2025-06-10 13:45:47,006 [INFO]  Kafka Producer успешно запущен
+2025-06-10 13:45:47,566 [INFO]  Kafka Producer успешно запущен
+2025-06-10 13:45:47,686 [INFO]  Kafka Producer успешно запущен
+2025-06-10 13:46:56,084 [INFO]  Kafka Producer успешно запущен
+2025-06-10 13:46:56,733 [INFO]  Kafka Producer успешно запущен
+2025-06-10 13:46:57,088 [INFO]  Kafka Producer успешно запущен
+2025-06-10 13:46:58,647 [INFO]  Kafka Producer успешно запущен
+2025-06-10 13:47:40,077 [INFO] Отправка события в Kafka: b'{"client_id":"client_9","event_datetime":"2025-04-27T09:23:09.901036","event_name":"play","product_id":"072c3af7-e4f3-4c54-8512-a52f073635d1","sid":"sid_129","r":"r_129","ts":"1745745661035","some_extra":"value"}'
