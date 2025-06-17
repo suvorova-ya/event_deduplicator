@@ -1,18 +1,23 @@
 import logging
 from logging.handlers import RotatingFileHandler
 import os
+from pathlib import Path
 
-LOG_DIR = "logs"
-os.makedirs(LOG_DIR, exist_ok=True)
+LOG_DIR = Path(__file__).resolve().parent.parent / "logs"
+LOG_DIR.mkdir(parents=True, exist_ok=True)
+
+
+# === Формат логов ===
+formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
+
 
 # === Основной логгер ===
 log_file = os.path.join(LOG_DIR, "app.log")
 file_handler = RotatingFileHandler(log_file, maxBytes=5_000_000, backupCount=3)
-formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
 file_handler.setFormatter(formatter)
 
 logger = logging.getLogger("product_logger")
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.WARNING)
 logger.addHandler(file_handler)
 logger.addHandler(logging.StreamHandler())  # для stdout
 
@@ -25,3 +30,4 @@ perf_logger = logging.getLogger("perf_logger")
 perf_logger.setLevel(logging.WARNING)
 perf_logger.addHandler(perf_file_handler)
 perf_logger.propagate = False
+# perf_logger.addHandler(logging.StreamHandler()) # для stdout
