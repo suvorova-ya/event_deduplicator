@@ -1,20 +1,14 @@
 from app.logging_config import logger, perf_logger
-import os
-from app.deduplicator.deduplicator import Deduplicator
-from aiokafka import AIOKafkaProducer, AIOKafkaConsumer
+from aiokafka import AIOKafkaProducer
 from aiokafka.errors import KafkaConnectionError
 from fastapi import FastAPI
 from app.api.routers import router
-from app.kafka.consumer import  consume
 from contextlib import asynccontextmanager
 import backoff
 import asyncio
 from app.logging_config import logger
+from app.kafka.config import PRODUCER_CONFIG
 
-
-NUM_CONSUMERS = int(os.getenv("NUM_CONSUMERS", "5"))
-KAFKA_BOOTSTRAP = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "kafka:9092")
-TOPIC_NAME = os.getenv("KAFKA_TOPIC", "products_events")
 
 @backoff.on_exception(
     backoff.expo,
@@ -28,10 +22,7 @@ async def connect_to_kafka_producer() -> AIOKafkaProducer:
     Попытаться подключиться к Kafka и вернуть уже запущенный producer.
     Если не получилось — backoff будет делать retry.
     """
-    producer = AIOKafkaProducer(
-        bootstrap_servers=KAFKA_BOOTSTRAP,
-        linger_ms=100,
-    )
+    producer = AIOKafkaProducer(**PRODUCER_CONFIG)
     await producer.start()
     logger.info(" Kafka Producer успешно запущен")
     return producer

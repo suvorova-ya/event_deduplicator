@@ -1,5 +1,5 @@
+from app.kafka.config import TOPIC_NAME, CONSUMER_CONFIG, NUM_CONSUMERS
 from app.logging_config import logger
-import os
 import asyncio
 import signal
 from app.deduplicator.deduplicator import Deduplicator
@@ -9,15 +9,12 @@ import backoff
 from aiokafka.errors import KafkaConnectionError
 
 
-NUM_CONSUMERS = int(os.getenv("NUM_CONSUMERS", "5"))
-KAFKA_BOOTSTRAP = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "kafka:9092")
-TOPIC_NAME = os.getenv("KAFKA_TOPIC", "products_events")
 
 @backoff.on_exception(
     backoff.expo,
     KafkaConnectionError,
     max_tries=20,      # Можно увеличить число попыток
-    max_time=180       # И время ожидания, чтобы Kafka точно успела подняться
+    max_time=180       # Время ожидания, чтобы Kafka точно успела подняться
 )
 async def start_consumer(consumer):
     await consumer.start()
@@ -37,31 +34,31 @@ async def main():
 
     deduplicator = Deduplicator()
     await deduplicator.init_bloom_filter()
-    consumer_objects = []
-    consumer_tasks = []
 
-    for i in range(NUM_CONSUMERS):
-        consumer = AIOKafkaConsumer(
-            TOPIC_NAME,
-            bootstrap_servers=KAFKA_BOOTSTRAP,
-            auto_offset_reset="earliest",
-            group_id='products_consumer_group',
-            max_poll_records=100,
-            enable_auto_commit=False
-        )
-        await start_consumer(consumer)
-        task = asyncio.create_task(consume(consumer, deduplicator))
-        consumer_objects.append(consumer)
-        consumer_tasks.append(task)
+    consumers = [AIOKafkaConsumer(TOPIC_NAME, **CONSUMER_CONFIG) for _ in range(NUM_CONSUMERS)]
+    tasks = []
 
-    await stop_event.wait()
-    logger.warning("Останавливаем консьюмеры...")
+    try:
+        for consumer in consumers:
+            await start_consumer(consumer)
+            tasks.append(asyncio.create_task(consume(consumer, deduplicator)))
 
-    for task in consumer_tasks:
-        task.cancel()
-    await asyncio.gather(*consumer_tasks, return_exceptions=True)
-    for consumer in consumer_objects:
-        await consumer.stop()
+        logger.info(f"Запущено {NUM_CONSUMERS} консьюмеров")
+        await stop_event.wait()
+        logger.warning("Останавливаем консьюмеры...")
+
+    finally:
+        logger.warning("Останавливаем консьюмеры...")
+        for task in tasks:
+            task.cancel()
+        await asyncio.gather(*tasks, return_exceptions=True)
+
+        for consumer in consumers:
+            await consumer.stop()
+        logger.info("Все консьюмеры остановлены")
+
+
+
 
 
 if __name__ == "__main__":

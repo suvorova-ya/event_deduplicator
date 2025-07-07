@@ -103,3 +103,4 @@ class Deduplicator:
                 """
             )
         )
+        await session.commit()
