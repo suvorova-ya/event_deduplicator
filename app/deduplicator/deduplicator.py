@@ -1,4 +1,5 @@
 from sqlalchemy import text
+from sqlalchemy.dialects.sqlite import insert
 
 from app.logging_config import logger, perf_logger
 import hashlib
@@ -85,12 +86,19 @@ class Deduplicator:
             f"Уникальное событие, добавлено в Redis и Bloom: {hash_value} по времени заняло: {time.perf_counter() - start:.3f}")
         return True
 
+
     @connection
-    async def save_db(self, session: AsyncSession, **values):
-        new_instance = self.model(**values)
-        session.add(new_instance)
-        await session.commit()
-        return new_instance
+    async def save_db(self, session: AsyncSession, values_list: list[dict]):
+        start = time.perf_counter()
+        stmt = insert(self.model)
+        await session.execute(stmt, values_list)
+        try:
+            await session.commit()
+        except SQLAlchemyError as e:
+            await session.rollback()
+            raise e
+        finally:
+            perf_logger.info(f"💾 save_db занял {time.perf_counter() - start:.3f} сек")
 
     @connection
     async def del_old_events(self, session: AsyncSession):

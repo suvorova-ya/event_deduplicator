@@ -18,6 +18,9 @@ redis = "^6.2.0"
 locust = "^2.37.6"
 base = "^0.0.0"
 gunicorn = "^23.0.0"
+pytest = "^8.4.1"
+pytest-asyncio = "^1.0.0"
+pytest-mock = "^3.14.1"
 
 
 [tool.poetry.group.dev.dependencies]

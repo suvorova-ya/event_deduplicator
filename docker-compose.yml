@@ -17,7 +17,7 @@ services:
       - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=PLAINTEXT:PLAINTEXT,EXTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT
       - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
       - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=PLAINTEXT
-      - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=false
+      - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true
     ulimits:
       nofile:
         soft: 100000
@@ -33,14 +33,12 @@ services:
 
   deduplicator-worker:
     build: .
-    container_name: deduplicator-worker
+    #container_name: deduplicator-worker
     command: [ "python", "app/kafka/consumer_main.py" ]
     working_dir: /code
     environment:
       - PYTHONPATH=/code
       - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - NUM_CONSUMERS=10
-      - REDIS_HOST=redis
     volumes:
       - ./logs:/code/logs
     depends_on:
@@ -84,7 +82,6 @@ services:
       - "8000:8000"
     environment:
       - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - NUM_CONSUMERS=5
       - REDIS_HOST=redis
     volumes:
       - ./logs:/code/logs

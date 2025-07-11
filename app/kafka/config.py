@@ -4,9 +4,9 @@ from typing import Final
 from aiokafka.coordinator.assignors.roundrobin import RoundRobinPartitionAssignor
 
 # Настройки Kafka
-KAFKA_BOOTSTRAP: Final[str] = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "kafka:9092")
-TOPIC_NAME: Final[str] = os.getenv("KAFKA_TOPIC", "products_events")
-NUM_CONSUMERS: Final[int] = int(os.getenv("NUM_CONSUMERS", "10"))
+KAFKA_BOOTSTRAP: Final[str] = os.environ["KAFKA_BOOTSTRAP_SERVERS"]
+TOPIC_NAME: Final[str] = os.environ["KAFKA_TOPIC"]
+NUM_CONSUMERS: Final[int] = int(os.environ["NUM_CONSUMERS"])
 
 # Настройки продюсера
 PRODUCER_CONFIG: Final[dict] = {
@@ -22,7 +22,9 @@ CONSUMER_CONFIG: Final[dict] = {
     "bootstrap_servers": KAFKA_BOOTSTRAP,
     "auto_offset_reset": "earliest",
     "group_id": "products_consumer_group",
-    "max_poll_records": 10,
+    "max_poll_records": 500,
+    "fetch_max_bytes": 10485760,
+    "fetch_max_wait_ms": 500,
     "enable_auto_commit": False,
     "session_timeout_ms": 30000,
     "heartbeat_interval_ms": 5000,

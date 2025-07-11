@@ -35,15 +35,14 @@ async def main():
     deduplicator = Deduplicator()
     await deduplicator.init_bloom_filter()
 
-    consumers = [AIOKafkaConsumer(TOPIC_NAME, **CONSUMER_CONFIG) for _ in range(NUM_CONSUMERS)]
+    consumer = AIOKafkaConsumer(TOPIC_NAME, **CONSUMER_CONFIG)
     tasks = []
 
     try:
-        for consumer in consumers:
-            await start_consumer(consumer)
-            tasks.append(asyncio.create_task(consume(consumer, deduplicator)))
+        await start_consumer(consumer)
+        task = asyncio.create_task(consume(consumer, deduplicator))
+        tasks.append(task)
 
-        logger.info(f"Запущено {NUM_CONSUMERS} консьюмеров")
         await stop_event.wait()
         logger.warning("Останавливаем консьюмеры...")
 
@@ -53,8 +52,8 @@ async def main():
             task.cancel()
         await asyncio.gather(*tasks, return_exceptions=True)
 
-        for consumer in consumers:
-            await consumer.stop()
+
+        await consumer.stop()
         logger.info("Все консьюмеры остановлены")
 
 
