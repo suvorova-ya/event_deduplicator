@@ -8,6 +8,8 @@ import backoff
 import asyncio
 from app.logging_config import logger
 from app.kafka.config import PRODUCER_CONFIG
+from prometheus_fastapi_instrumentator import Instrumentator
+
 
 
 @backoff.on_exception(
@@ -44,6 +46,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
+Instrumentator().instrument(app).expose(app)
 app.include_router(router)
 
 

@@ -1,83 +1,36 @@
-"""
-Locust-сценарий: поднимаем нагрузку до 500 RPS, 30 % запросов – дубликаты.
-
-Запуск в headless-режиме:
-docker compose run --rm locust -f tests/locustfile.py --headless \
-    -u 500 -r 50 -t 5m --host http://fastapi_app:8000
-"""
-
-import itertools
-import json
-import random
-import time
-import uuid
+# tests/locustfile.py
+import json, random, time, uuid
 from pathlib import Path
+from locust import FastHttpUser, task, constant
 
-from locust import HttpUser, LoadTestShape, between, task
-
-
-import logging
-from datetime import datetime
-
-from app.logging_config import logger
-
+# ── данные для событий ─────────────────────────────────────────────────────────
 BASE = Path(__file__).parent
+EVENTS = json.loads((BASE / "results.json").read_text())
 
+def make_event(dup_source: dict | None) -> tuple[dict, dict]:
+    """
+    Возвращает (payload, last).
+    В 30% случаев вернем прошлое событие как дубликат.
+    """
+    if dup_source and random.random() < 0.30:
+        return dup_source, dup_source
+    base = random.choice(EVENTS).copy()
+    base["event_datetime"] = int(time.time() * 1000)
+    base["request_id"] = str(uuid.uuid4())
+    return base, base
 
+# ── пользователь ───────────────────────────────────────────────────────────────
+class ProductUser(FastHttpUser):
+    host = "http://fastapi:8000"     # можно переопределить --host в cli
+    wait_time = constant(0)          # максимально возможный RPS с учетом задержек
 
-log_file = BASE.parent / "logs" / f"locust_{datetime.now():%Y-%m-%d_%H-%M-%S}.log"
-log_file.parent.mkdir(parents=True, exist_ok=True)
-
-
-BASE = Path(__file__).parent
-DATA = (BASE / "test_events_350.json").read_text(encoding="utf-8")
-events = json.loads(DATA)
-
-
-def iter_events():
-    """Бесконечный поток событий, каждое третье – дубликат предыдущего."""
-    source = itertools.cycle(events)  # ← циклим  по списку словарей
-    last = None
-    for item in source:
-        if random.random() < 0.3 and last:
-            yield last
-        else:
-            ev = item.copy()
-            ev["event_datetime"] = int(time.time() * 1000)
-            ev["request_id"] = str(uuid.uuid4())
-            last = ev
-            yield ev
-
-
-_EVENTS = iter_events()
-
-
-class ProductUser(HttpUser):
-    host = "http://fastapi:8000"
-    wait_time = between(0.01, 0.05)
+    _last = None
 
     @task
     def send_event(self):
-        response = self.client.post("/event", json=next(_EVENTS), name="/event")
-        if response.status_code >= 400:
-            logger.warning(f"❌ Ошибка {response.status_code}: {response.text}")
-
-
-# ───── профиль нагрузки: 0→500 rps, держим, затем спад ────────────────────────
-class Stages(LoadTestShape):
-    stages = [
-        {"duration": 60, "users": 500, "spawn_rate": 50},
-        {"duration": 300, "users": 500, "spawn_rate": 1},
-        {"duration": 360, "users": 0, "spawn_rate": 50},
-    ]
-
-    def tick(self):
-        run = self.get_run_time()
-        total = 0
-        for s in self.stages:
-            total += s["duration"]
-            if run < total:
-                return s["users"], s["spawn_rate"]
-        return None
+        payload, self._last = make_event(self._last)
+        with self.client.post("/event", json=payload, name="/event", catch_response=True) as r:
+            if r.status_code >= 400:
+                r.failure(f"{r.status_code} {r.text[:100]}")
 
 

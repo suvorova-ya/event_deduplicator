@@ -1,0 +1,6 @@
+pg_stat_activity_count:
+  query: "SELECT count(*) as value FROM pg_stat_activity;"
+  metrics:
+    - value:
+        usage: "GAUGE"
+        description: "Number of active connections"
