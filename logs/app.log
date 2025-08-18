@@ -642,3 +642,94 @@ ts
 2025-08-17 16:01:42,396 [WARNING] Останавливаем консьюмеры...
 2025-08-17 16:01:42,401 [WARNING] Останавливаем консьюмеры...
 2025-08-17 16:01:42,423 [INFO] Все консьюмеры остановлены
+2025-08-18 12:16:59,816 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 12:16:59,817 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 12:16:59,817 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 12:16:59,818 [INFO] Сохранено 2 событий в БД
+2025-08-18 12:16:59,821 [ERROR] Ошибка парсинга: 1 validation error for EventCreate
+  Invalid JSON: key must be a string at line 1 column 2 [type=json_invalid, input_value='{not-a-json', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid
+2025-08-18 12:20:41,943 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 12:20:41,943 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 12:20:41,943 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 12:20:41,944 [INFO] Сохранено 2 событий в БД
+2025-08-18 12:20:41,946 [ERROR] Ошибка парсинга: 1 validation error for EventCreate
+  Invalid JSON: key must be a string at line 1 column 2 [type=json_invalid, input_value='{not-a-json', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid
+2025-08-18 12:20:41,948 [INFO]  Получено событие: event.event_name='view' event.client_id='c1'
+2025-08-18 12:20:41,949 [INFO] Сохранено 1 событий в БД
+2025-08-18 12:23:07,791 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 12:23:07,792 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 12:23:07,792 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 12:23:07,792 [INFO] Сохранено 2 событий в БД
+2025-08-18 12:23:07,794 [ERROR] Ошибка парсинга: 1 validation error for EventCreate
+  Invalid JSON: key must be a string at line 1 column 2 [type=json_invalid, input_value='{not-a-json', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid
+2025-08-18 12:23:07,797 [INFO]  Получено событие: event.event_name='view' event.client_id='c1'
+2025-08-18 12:23:07,798 [INFO] Сохранено 1 событий в БД
+2025-08-18 12:28:59,204 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 12:28:59,204 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 12:28:59,204 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 12:28:59,205 [INFO] Сохранено 2 событий в БД
+2025-08-18 12:28:59,207 [ERROR] Ошибка парсинга: 1 validation error for EventCreate
+  Invalid JSON: key must be a string at line 1 column 2 [type=json_invalid, input_value='{not-a-json', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid
+2025-08-18 12:28:59,209 [INFO]  Получено событие: event.event_name='view' event.client_id='c1'
+2025-08-18 12:28:59,211 [INFO] Сохранено 1 событий в БД
+2025-08-18 12:32:36,721 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 12:32:36,721 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 12:32:36,721 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 12:32:36,722 [INFO] Сохранено 2 событий в БД
+2025-08-18 12:32:36,724 [ERROR] Ошибка парсинга: 1 validation error for EventCreate
+  Invalid JSON: key must be a string at line 1 column 2 [type=json_invalid, input_value='{not-a-json', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid
+2025-08-18 12:32:36,726 [INFO]  Получено событие: event.event_name='view' event.client_id='c1'
+2025-08-18 12:32:36,727 [INFO] Сохранено 1 событий в БД
+2025-08-18 14:33:49,911 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 14:33:49,911 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 14:33:49,911 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 14:33:49,911 [INFO] Сохранено 2 событий в БД
+2025-08-18 14:33:49,913 [ERROR] Ошибка парсинга: 1 validation error for EventCreate
+  Invalid JSON: key must be a string at line 1 column 2 [type=json_invalid, input_value='{not-a-json', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid
+2025-08-18 14:33:49,914 [INFO]  Получено событие: event.event_name='view' event.client_id='c1'
+2025-08-18 14:33:49,914 [ERROR] Сбой check_redis для client_id=c1, event_name=view
+Traceback (most recent call last):
+  File "/home/yana/PycharmProjects/event_deduplicator/app/kafka/consumer.py", line 66, in _check_and_prepare
+    is_unique = await self.deduplicator.check_redis(event.model_dump())
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 2262, in _execute_mock_call
+    raise effect
+Exception: Redis timeout
+2025-08-18 14:35:26,393 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 14:35:26,393 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 14:35:26,393 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 14:35:26,394 [INFO] Сохранено 2 событий в БД
+2025-08-18 14:35:26,395 [ERROR] Ошибка парсинга: 1 validation error for EventCreate
+  Invalid JSON: key must be a string at line 1 column 2 [type=json_invalid, input_value='{not-a-json', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid
+2025-08-18 14:35:26,397 [INFO]  Получено событие: event.event_name='view' event.client_id='c1'
+2025-08-18 14:35:26,397 [ERROR] Сбой check_redis для client_id=c1, event_name=view
+Traceback (most recent call last):
+  File "/home/yana/PycharmProjects/event_deduplicator/app/kafka/consumer.py", line 66, in _check_and_prepare
+    is_unique = await self.deduplicator.check_redis(event.model_dump())
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 2262, in _execute_mock_call
+    raise effect
+Exception: Redis timeout
+2025-08-18 14:36:04,880 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 14:36:04,881 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 14:36:04,881 [INFO]  Получено событие: event.event_name='click' event.client_id='c1'
+2025-08-18 14:36:04,881 [INFO] Сохранено 2 событий в БД
+2025-08-18 14:36:04,882 [ERROR] Ошибка парсинга: 1 validation error for EventCreate
+  Invalid JSON: key must be a string at line 1 column 2 [type=json_invalid, input_value='{not-a-json', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid
+2025-08-18 14:36:04,883 [INFO]  Получено событие: event.event_name='view' event.client_id='c1'
+2025-08-18 14:36:04,884 [ERROR] Сбой check_redis для client_id=c1, event_name=view
+Traceback (most recent call last):
+  File "/home/yana/PycharmProjects/event_deduplicator/app/kafka/consumer.py", line 66, in _check_and_prepare
+    is_unique = await self.deduplicator.check_redis(event.model_dump())
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 2262, in _execute_mock_call
+    raise effect
+Exception: Redis timeout
