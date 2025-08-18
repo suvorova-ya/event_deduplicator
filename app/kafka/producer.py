@@ -6,11 +6,15 @@ from app.logging_config import logger
 
 
 
-async def send_to_kafka(request: Request, event: EventCreate):
+async def send_to_kafka(request: Request, events: list[EventCreate]):
     topic = 'products_events'
-    send_event = event.model_dump_json().encode('utf-8')
-    logger.info(f"Отправка события в Kafka: {send_event}")
-
     producer = request.app.state.producer
-    #await producer.send_and_wait(topic, send_event)
-    asyncio.create_task(producer.send(topic, value=send_event))
+
+    # Сериализация всех событий в список байтов
+    batch_data = [e.model_dump_json().encode('utf-8') for e in events]
+    # Отправляем все события асинхронно
+    send_tasks = [producer.send(topic, data) for data in batch_data]
+    logger.info(f"Отправка события в Kafka: {send_tasks}")
+    await asyncio.gather(*send_tasks)
+
+    await producer.flush()

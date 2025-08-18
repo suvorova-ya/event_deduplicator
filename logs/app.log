@@ -306,3 +306,339 @@
 2025-08-14 07:00:41,194 [WARNING] Останавливаем консьюмеры...
 2025-08-14 07:00:41,208 [WARNING] Останавливаем консьюмеры...
 2025-08-14 07:00:41,208 [WARNING] Останавливаем консьюмеры...
+2025-08-17 15:35:23,326 [WARNING] Получен сигнал остановки, завершаем работу...
+2025-08-17 15:35:23,330 [WARNING] Останавливаем консьюмеры...
+2025-08-17 15:35:23,333 [WARNING] Останавливаем консьюмеры...
+2025-08-17 15:39:53,555 [WARNING] Получен сигнал остановки, завершаем работу...
+2025-08-17 15:39:53,558 [WARNING] Останавливаем консьюмеры...
+2025-08-17 15:39:53,562 [WARNING] Останавливаем консьюмеры...
+2025-08-17 15:44:35,420 [ERROR] Ошибка обработки: 7 validation errors for EventCreate
+client_id
+  Field required [type=missing, input_value={'hello': 'world'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+event_datetime
+  Field required [type=missing, input_value={'hello': 'world'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+event_name
+  Field required [type=missing, input_value={'hello': 'world'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+product_id
+  Field required [type=missing, input_value={'hello': 'world'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+sid
+  Field required [type=missing, input_value={'hello': 'world'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+r
+  Field required [type=missing, input_value={'hello': 'world'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+ts
+  Field required [type=missing, input_value={'hello': 'world'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+2025-08-17 15:44:35,427 [ERROR] Ошибка обработки: 7 validation errors for EventCreate
+client_id
+  Field required [type=missing, input_value={'ping': 1}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+event_datetime
+  Field required [type=missing, input_value={'ping': 1}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+event_name
+  Field required [type=missing, input_value={'ping': 1}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+product_id
+  Field required [type=missing, input_value={'ping': 1}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+sid
+  Field required [type=missing, input_value={'ping': 1}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+r
+  Field required [type=missing, input_value={'ping': 1}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+ts
+  Field required [type=missing, input_value={'ping': 1}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+2025-08-17 15:45:26,760 [WARNING] Получен сигнал остановки, завершаем работу...
+2025-08-17 15:45:26,768 [WARNING] Останавливаем консьюмеры...
+2025-08-17 15:45:26,771 [WARNING] Останавливаем консьюмеры...
+2025-08-17 15:50:14,652 [INFO]  Kafka Producer успешно запущен
+2025-08-17 15:50:16,737 [INFO]  Kafka Producer успешно запущен
+2025-08-17 15:50:32,554 [INFO]  Kafka Producer успешно запущен
+2025-08-17 15:50:33,177 [INFO]  Kafka Producer успешно запущен
+2025-08-17 15:52:35,159 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fc25f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fc25a80>, <coroutine object AIOKafkaProducer.send at 0x7f384fc265c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fc26700>, <coroutine object AIOKafkaProducer.send at 0x7f384fc26840>]
+2025-08-17 15:53:57,881 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:02,269 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:03,433 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:03,928 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:04,326 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:04,652 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:04,959 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:05,268 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:05,564 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:05,834 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:06,107 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:06,400 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:06,496 [INFO]  Получено событие: event.event_name='play' event.client_id='client_7'
+2025-08-17 15:54:06,499 [INFO]  Получено событие: event.event_name='play' event.client_id='client_3'
+2025-08-17 15:54:06,501 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:06,503 [INFO]  Получено событие: event.event_name='play' event.client_id='client_1'
+2025-08-17 15:54:06,505 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:06,506 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:06,508 [INFO]  Получено событие: event.event_name='play' event.client_id='client_7'
+2025-08-17 15:54:06,509 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:06,510 [INFO]  Получено событие: event.event_name='play' event.client_id='client_1'
+2025-08-17 15:54:06,512 [INFO]  Получено событие: event.event_name='play' event.client_id='client_3'
+2025-08-17 15:54:06,513 [INFO]  Получено событие: event.event_name='play' event.client_id='client_7'
+2025-08-17 15:54:06,514 [INFO]  Получено событие: event.event_name='play' event.client_id='client_3'
+2025-08-17 15:54:06,515 [INFO]  Получено событие: event.event_name='play' event.client_id='client_1'
+2025-08-17 15:54:06,518 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:06,521 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:06,523 [INFO]  Получено событие: event.event_name='play' event.client_id='client_3'
+2025-08-17 15:54:06,527 [INFO]  Получено событие: event.event_name='play' event.client_id='client_1'
+2025-08-17 15:54:06,529 [INFO]  Получено событие: event.event_name='play' event.client_id='client_7'
+2025-08-17 15:54:06,530 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:06,533 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:06,535 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:06,538 [INFO]  Получено событие: event.event_name='play' event.client_id='client_3'
+2025-08-17 15:54:06,541 [INFO]  Получено событие: event.event_name='play' event.client_id='client_1'
+2025-08-17 15:54:06,543 [INFO]  Получено событие: event.event_name='play' event.client_id='client_7'
+2025-08-17 15:54:06,545 [INFO]  Получено событие: event.event_name='play' event.client_id='client_3'
+2025-08-17 15:54:06,547 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:06,550 [INFO]  Получено событие: event.event_name='play' event.client_id='client_1'
+2025-08-17 15:54:06,552 [INFO]  Получено событие: event.event_name='play' event.client_id='client_7'
+2025-08-17 15:54:06,554 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:06,557 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:06,559 [INFO]  Получено событие: event.event_name='play' event.client_id='client_3'
+2025-08-17 15:54:06,561 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:06,563 [INFO]  Получено событие: event.event_name='play' event.client_id='client_1'
+2025-08-17 15:54:06,565 [INFO]  Получено событие: event.event_name='play' event.client_id='client_3'
+2025-08-17 15:54:06,567 [INFO]  Получено событие: event.event_name='play' event.client_id='client_1'
+2025-08-17 15:54:06,569 [INFO]  Получено событие: event.event_name='play' event.client_id='client_7'
+2025-08-17 15:54:06,572 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:06,573 [INFO]  Получено событие: event.event_name='play' event.client_id='client_7'
+2025-08-17 15:54:06,577 [INFO]  Получено событие: event.event_name='play' event.client_id='client_3'
+2025-08-17 15:54:06,578 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:06,579 [INFO]  Получено событие: event.event_name='play' event.client_id='client_7'
+2025-08-17 15:54:06,581 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:06,583 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:06,584 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:06,585 [INFO]  Получено событие: event.event_name='play' event.client_id='client_1'
+2025-08-17 15:54:06,587 [INFO]  Получено событие: event.event_name='play' event.client_id='client_1'
+2025-08-17 15:54:06,588 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:06,589 [INFO]  Получено событие: event.event_name='play' event.client_id='client_7'
+2025-08-17 15:54:06,590 [INFO]  Получено событие: event.event_name='play' event.client_id='client_7'
+2025-08-17 15:54:06,591 [INFO]  Получено событие: event.event_name='play' event.client_id='client_3'
+2025-08-17 15:54:06,626 [INFO] Добавляем в Bloom-фильтр: ab94c82daf107e2426f127a55fbf9f49337317f36c5a6c49d71237c88683671d
+2025-08-17 15:54:06,627 [INFO] Добавляем в Bloom-фильтр: 33680e15c36c5f41ef985f341980d831b53e2c910551df5a93f6c151c4916ccd
+2025-08-17 15:54:06,627 [INFO] Добавляем в Bloom-фильтр: def58c21e714bdd808569bf625c2398cbcf06a218fc98316881993b2ea0f230e
+2025-08-17 15:54:06,628 [INFO] Добавляем в Bloom-фильтр: 618e5aae1be8b7535196849bc5381a2a62cc7bc4b5521416b26d5b7720599965
+2025-08-17 15:54:06,631 [INFO] Добавляем в Bloom-фильтр: f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05
+2025-08-17 15:54:06,632 [INFO] Добавляем в Bloom-фильтр: f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05
+2025-08-17 15:54:06,635 [INFO] Добавляем в Bloom-фильтр: ab94c82daf107e2426f127a55fbf9f49337317f36c5a6c49d71237c88683671d
+2025-08-17 15:54:06,636 [INFO] Добавляем в Bloom-фильтр: def58c21e714bdd808569bf625c2398cbcf06a218fc98316881993b2ea0f230e
+2025-08-17 15:54:06,640 [INFO] Добавляем в Bloom-фильтр: 618e5aae1be8b7535196849bc5381a2a62cc7bc4b5521416b26d5b7720599965
+2025-08-17 15:54:06,643 [INFO] Добавляем в Bloom-фильтр: 33680e15c36c5f41ef985f341980d831b53e2c910551df5a93f6c151c4916ccd
+2025-08-17 15:54:06,645 [INFO] Добавляем в Bloom-фильтр: ab94c82daf107e2426f127a55fbf9f49337317f36c5a6c49d71237c88683671d
+2025-08-17 15:54:06,647 [INFO] Добавляем в Bloom-фильтр: 33680e15c36c5f41ef985f341980d831b53e2c910551df5a93f6c151c4916ccd
+2025-08-17 15:54:06,649 [INFO] Добавляем в Bloom-фильтр: 618e5aae1be8b7535196849bc5381a2a62cc7bc4b5521416b26d5b7720599965
+2025-08-17 15:54:06,651 [INFO] Добавляем в Bloom-фильтр: def58c21e714bdd808569bf625c2398cbcf06a218fc98316881993b2ea0f230e
+2025-08-17 15:54:06,652 [INFO] Добавляем в Bloom-фильтр: f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05
+2025-08-17 15:54:06,654 [INFO] Добавляем в Bloom-фильтр: 33680e15c36c5f41ef985f341980d831b53e2c910551df5a93f6c151c4916ccd
+2025-08-17 15:54:06,656 [INFO] Добавляем в Bloom-фильтр: 618e5aae1be8b7535196849bc5381a2a62cc7bc4b5521416b26d5b7720599965
+2025-08-17 15:54:06,660 [INFO] Добавляем в Bloom-фильтр: ab94c82daf107e2426f127a55fbf9f49337317f36c5a6c49d71237c88683671d
+2025-08-17 15:54:06,661 [INFO] Добавляем в Bloom-фильтр: f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05
+2025-08-17 15:54:06,662 [INFO] Добавляем в Bloom-фильтр: def58c21e714bdd808569bf625c2398cbcf06a218fc98316881993b2ea0f230e
+2025-08-17 15:54:06,664 [INFO] Добавляем в Bloom-фильтр: f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05
+2025-08-17 15:54:06,666 [INFO] Добавляем в Bloom-фильтр: 33680e15c36c5f41ef985f341980d831b53e2c910551df5a93f6c151c4916ccd
+2025-08-17 15:54:06,668 [INFO] Добавляем в Bloom-фильтр: 618e5aae1be8b7535196849bc5381a2a62cc7bc4b5521416b26d5b7720599965
+2025-08-17 15:54:06,669 [INFO] Добавляем в Bloom-фильтр: ab94c82daf107e2426f127a55fbf9f49337317f36c5a6c49d71237c88683671d
+2025-08-17 15:54:06,670 [INFO] Добавляем в Bloom-фильтр: 33680e15c36c5f41ef985f341980d831b53e2c910551df5a93f6c151c4916ccd
+2025-08-17 15:54:06,671 [INFO] Добавляем в Bloom-фильтр: def58c21e714bdd808569bf625c2398cbcf06a218fc98316881993b2ea0f230e
+2025-08-17 15:54:06,674 [INFO] Добавляем в Bloom-фильтр: 618e5aae1be8b7535196849bc5381a2a62cc7bc4b5521416b26d5b7720599965
+2025-08-17 15:54:06,675 [INFO] Добавляем в Bloom-фильтр: ab94c82daf107e2426f127a55fbf9f49337317f36c5a6c49d71237c88683671d
+2025-08-17 15:54:06,676 [INFO] Добавляем в Bloom-фильтр: f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05
+2025-08-17 15:54:06,677 [INFO] Добавляем в Bloom-фильтр: def58c21e714bdd808569bf625c2398cbcf06a218fc98316881993b2ea0f230e
+2025-08-17 15:54:06,678 [INFO] Добавляем в Bloom-фильтр: 33680e15c36c5f41ef985f341980d831b53e2c910551df5a93f6c151c4916ccd
+2025-08-17 15:54:06,678 [INFO] Добавляем в Bloom-фильтр: def58c21e714bdd808569bf625c2398cbcf06a218fc98316881993b2ea0f230e
+2025-08-17 15:54:06,680 [INFO] Добавляем в Bloom-фильтр: 618e5aae1be8b7535196849bc5381a2a62cc7bc4b5521416b26d5b7720599965
+2025-08-17 15:54:06,681 [INFO] Добавляем в Bloom-фильтр: 33680e15c36c5f41ef985f341980d831b53e2c910551df5a93f6c151c4916ccd
+2025-08-17 15:54:06,682 [INFO] Добавляем в Bloom-фильтр: 618e5aae1be8b7535196849bc5381a2a62cc7bc4b5521416b26d5b7720599965
+2025-08-17 15:54:06,683 [INFO] Добавляем в Bloom-фильтр: ab94c82daf107e2426f127a55fbf9f49337317f36c5a6c49d71237c88683671d
+2025-08-17 15:54:06,683 [INFO] Добавляем в Bloom-фильтр: f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05
+2025-08-17 15:54:06,684 [INFO] Добавляем в Bloom-фильтр: ab94c82daf107e2426f127a55fbf9f49337317f36c5a6c49d71237c88683671d
+2025-08-17 15:54:06,685 [INFO] Добавляем в Bloom-фильтр: 33680e15c36c5f41ef985f341980d831b53e2c910551df5a93f6c151c4916ccd
+2025-08-17 15:54:06,686 [INFO] Добавляем в Bloom-фильтр: def58c21e714bdd808569bf625c2398cbcf06a218fc98316881993b2ea0f230e
+2025-08-17 15:54:06,688 [INFO] Добавляем в Bloom-фильтр: ab94c82daf107e2426f127a55fbf9f49337317f36c5a6c49d71237c88683671d
+2025-08-17 15:54:06,689 [INFO] Добавляем в Bloom-фильтр: def58c21e714bdd808569bf625c2398cbcf06a218fc98316881993b2ea0f230e
+2025-08-17 15:54:06,690 [INFO] Добавляем в Bloom-фильтр: f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05
+2025-08-17 15:54:06,691 [INFO] Добавляем в Bloom-фильтр: f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05
+2025-08-17 15:54:06,692 [INFO] Добавляем в Bloom-фильтр: 618e5aae1be8b7535196849bc5381a2a62cc7bc4b5521416b26d5b7720599965
+2025-08-17 15:54:06,693 [INFO] Добавляем в Bloom-фильтр: 618e5aae1be8b7535196849bc5381a2a62cc7bc4b5521416b26d5b7720599965
+2025-08-17 15:54:06,694 [INFO] Добавляем в Bloom-фильтр: f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05
+2025-08-17 15:54:06,696 [INFO] Добавляем в Bloom-фильтр: ab94c82daf107e2426f127a55fbf9f49337317f36c5a6c49d71237c88683671d
+2025-08-17 15:54:06,698 [INFO] Добавляем в Bloom-фильтр: ab94c82daf107e2426f127a55fbf9f49337317f36c5a6c49d71237c88683671d
+2025-08-17 15:54:06,699 [INFO] Добавляем в Bloom-фильтр: 33680e15c36c5f41ef985f341980d831b53e2c910551df5a93f6c151c4916ccd
+2025-08-17 15:54:06,703 [INFO] Событие сохранено в БД: client_7
+2025-08-17 15:54:06,704 [INFO] Событие сохранено в БД: client_3
+2025-08-17 15:54:06,706 [INFO] Событие сохранено в БД: client_5
+2025-08-17 15:54:06,708 [INFO] Событие сохранено в БД: client_1
+2025-08-17 15:54:06,709 [INFO] Событие сохранено в БД: client_5
+2025-08-17 15:54:06,710 [INFO] Событие сохранено в БД: client_5
+2025-08-17 15:54:06,711 [INFO] Событие сохранено в БД: client_7
+2025-08-17 15:54:06,712 [INFO] Событие сохранено в БД: client_5
+2025-08-17 15:54:06,712 [INFO] Событие сохранено в БД: client_1
+2025-08-17 15:54:06,714 [INFO] Событие сохранено в БД: client_3
+2025-08-17 15:54:06,715 [INFO] Событие сохранено в БД: client_7
+2025-08-17 15:54:06,716 [INFO] Событие сохранено в БД: client_3
+2025-08-17 15:54:06,716 [INFO] Событие сохранено в БД: client_1
+2025-08-17 15:54:06,717 [INFO] Событие сохранено в БД: client_5
+2025-08-17 15:54:06,719 [INFO] Событие сохранено в БД: client_5
+2025-08-17 15:54:06,719 [INFO] Событие сохранено в БД: client_3
+2025-08-17 15:54:06,720 [INFO] Событие сохранено в БД: client_1
+2025-08-17 15:54:06,721 [INFO] Событие сохранено в БД: client_7
+2025-08-17 15:54:06,723 [INFO] Событие сохранено в БД: client_5
+2025-08-17 15:54:06,723 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:06,725 [INFO] Событие сохранено в БД: client_5
+2025-08-17 15:54:06,726 [INFO] Событие сохранено в БД: client_5
+2025-08-17 15:54:06,727 [INFO] Событие сохранено в БД: client_3
+2025-08-17 15:54:06,729 [INFO] Событие сохранено в БД: client_7
+2025-08-17 15:54:06,729 [INFO] Событие сохранено в БД: client_1
+2025-08-17 15:54:06,731 [INFO] Событие сохранено в БД: client_3
+2025-08-17 15:54:06,731 [INFO] Событие сохранено в БД: client_5
+2025-08-17 15:54:06,733 [INFO] Событие сохранено в БД: client_1
+2025-08-17 15:54:06,734 [INFO] Событие сохранено в БД: client_7
+2025-08-17 15:54:06,735 [INFO] Событие сохранено в БД: client_5
+2025-08-17 15:54:06,736 [INFO] Событие сохранено в БД: client_5
+2025-08-17 15:54:06,737 [INFO] Событие сохранено в БД: client_3
+2025-08-17 15:54:06,739 [INFO] Событие сохранено в БД: client_5
+2025-08-17 15:54:06,740 [INFO] Событие сохранено в БД: client_1
+2025-08-17 15:54:06,742 [INFO] Событие сохранено в БД: client_3
+2025-08-17 15:54:06,744 [INFO] Событие сохранено в БД: client_1
+2025-08-17 15:54:06,745 [INFO] Событие сохранено в БД: client_7
+2025-08-17 15:54:06,746 [INFO] Событие сохранено в БД: client_5
+2025-08-17 15:54:06,747 [INFO] Событие сохранено в БД: client_7
+2025-08-17 15:54:06,748 [INFO] Событие сохранено в БД: client_3
+2025-08-17 15:54:06,750 [INFO] Событие сохранено в БД: client_5
+2025-08-17 15:54:06,751 [INFO] Событие сохранено в БД: client_7
+2025-08-17 15:54:06,752 [INFO] Событие сохранено в БД: client_5
+2025-08-17 15:54:06,753 [INFO] Событие сохранено в БД: client_5
+2025-08-17 15:54:06,754 [INFO] Событие сохранено в БД: client_5
+2025-08-17 15:54:06,755 [INFO] Событие сохранено в БД: client_1
+2025-08-17 15:54:06,756 [INFO] Событие сохранено в БД: client_1
+2025-08-17 15:54:06,758 [INFO] Событие сохранено в БД: client_5
+2025-08-17 15:54:06,760 [INFO] Событие сохранено в БД: client_7
+2025-08-17 15:54:06,761 [INFO] Событие сохранено в БД: client_7
+2025-08-17 15:54:06,762 [INFO] Событие сохранено в БД: client_3
+2025-08-17 15:54:06,830 [INFO] Сохранено 50 событий в БД
+2025-08-17 15:54:07,261 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:07,575 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:07,862 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:08,151 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:08,445 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:08,728 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:08,994 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:09,265 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:09,537 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:09,617 [INFO]  Получено событие: event.event_name='play' event.client_id='client_1'
+2025-08-17 15:54:09,619 [INFO]  Получено событие: event.event_name='play' event.client_id='client_1'
+2025-08-17 15:54:09,621 [INFO]  Получено событие: event.event_name='play' event.client_id='client_7'
+2025-08-17 15:54:09,624 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,627 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,629 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,630 [INFO]  Получено событие: event.event_name='play' event.client_id='client_3'
+2025-08-17 15:54:09,632 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,633 [INFO]  Получено событие: event.event_name='play' event.client_id='client_3'
+2025-08-17 15:54:09,635 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,636 [INFO]  Получено событие: event.event_name='play' event.client_id='client_3'
+2025-08-17 15:54:09,637 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,639 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,641 [INFO]  Получено событие: event.event_name='play' event.client_id='client_7'
+2025-08-17 15:54:09,642 [INFO]  Получено событие: event.event_name='play' event.client_id='client_1'
+2025-08-17 15:54:09,644 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,646 [INFO]  Получено событие: event.event_name='play' event.client_id='client_1'
+2025-08-17 15:54:09,648 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,649 [INFO]  Получено событие: event.event_name='play' event.client_id='client_1'
+2025-08-17 15:54:09,651 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,652 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,653 [INFO]  Получено событие: event.event_name='play' event.client_id='client_7'
+2025-08-17 15:54:09,655 [INFO]  Получено событие: event.event_name='play' event.client_id='client_3'
+2025-08-17 15:54:09,656 [INFO]  Получено событие: event.event_name='play' event.client_id='client_7'
+2025-08-17 15:54:09,657 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,659 [INFO]  Получено событие: event.event_name='play' event.client_id='client_3'
+2025-08-17 15:54:09,661 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,663 [INFO]  Получено событие: event.event_name='play' event.client_id='client_3'
+2025-08-17 15:54:09,665 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,667 [INFO]  Получено событие: event.event_name='play' event.client_id='client_3'
+2025-08-17 15:54:09,668 [INFO]  Получено событие: event.event_name='play' event.client_id='client_1'
+2025-08-17 15:54:09,669 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,671 [INFO]  Получено событие: event.event_name='play' event.client_id='client_7'
+2025-08-17 15:54:09,673 [INFO]  Получено событие: event.event_name='play' event.client_id='client_7'
+2025-08-17 15:54:09,675 [INFO]  Получено событие: event.event_name='play' event.client_id='client_1'
+2025-08-17 15:54:09,676 [INFO]  Получено событие: event.event_name='play' event.client_id='client_3'
+2025-08-17 15:54:09,677 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,679 [INFO]  Получено событие: event.event_name='play' event.client_id='client_1'
+2025-08-17 15:54:09,680 [INFO]  Получено событие: event.event_name='play' event.client_id='client_7'
+2025-08-17 15:54:09,682 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,684 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,686 [INFO]  Получено событие: event.event_name='play' event.client_id='client_7'
+2025-08-17 15:54:09,687 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,690 [INFO]  Получено событие: event.event_name='play' event.client_id='client_1'
+2025-08-17 15:54:09,691 [INFO]  Получено событие: event.event_name='play' event.client_id='client_3'
+2025-08-17 15:54:09,692 [INFO]  Получено событие: event.event_name='play' event.client_id='client_1'
+2025-08-17 15:54:09,694 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,696 [INFO]  Получено событие: event.event_name='play' event.client_id='client_7'
+2025-08-17 15:54:09,698 [INFO]  Получено событие: event.event_name='play' event.client_id='client_5'
+2025-08-17 15:54:09,700 [INFO]  Получено событие: event.event_name='play' event.client_id='client_3'
+2025-08-17 15:54:09,714 [INFO] Хэш:  618e5aae1be8b7535196849bc5381a2a62cc7bc4b5521416b26d5b7720599965 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,715 [INFO] Хэш:  618e5aae1be8b7535196849bc5381a2a62cc7bc4b5521416b26d5b7720599965 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,717 [INFO] Хэш:  ab94c82daf107e2426f127a55fbf9f49337317f36c5a6c49d71237c88683671d для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,718 [INFO] Хэш:  f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,722 [INFO] Хэш:  f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,724 [INFO] Хэш:  def58c21e714bdd808569bf625c2398cbcf06a218fc98316881993b2ea0f230e для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,726 [INFO] Хэш:  33680e15c36c5f41ef985f341980d831b53e2c910551df5a93f6c151c4916ccd для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,729 [INFO] Хэш:  def58c21e714bdd808569bf625c2398cbcf06a218fc98316881993b2ea0f230e для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,731 [INFO] Хэш:  33680e15c36c5f41ef985f341980d831b53e2c910551df5a93f6c151c4916ccd для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,733 [INFO] Хэш:  f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,736 [INFO] Хэш:  33680e15c36c5f41ef985f341980d831b53e2c910551df5a93f6c151c4916ccd для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,738 [INFO] Хэш:  def58c21e714bdd808569bf625c2398cbcf06a218fc98316881993b2ea0f230e для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,740 [INFO] Хэш:  def58c21e714bdd808569bf625c2398cbcf06a218fc98316881993b2ea0f230e для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,744 [INFO] Хэш:  ab94c82daf107e2426f127a55fbf9f49337317f36c5a6c49d71237c88683671d для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,747 [INFO] Хэш:  618e5aae1be8b7535196849bc5381a2a62cc7bc4b5521416b26d5b7720599965 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,750 [INFO] Хэш:  def58c21e714bdd808569bf625c2398cbcf06a218fc98316881993b2ea0f230e для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,753 [INFO] Хэш:  618e5aae1be8b7535196849bc5381a2a62cc7bc4b5521416b26d5b7720599965 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,756 [INFO] Хэш:  def58c21e714bdd808569bf625c2398cbcf06a218fc98316881993b2ea0f230e для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,760 [INFO] Хэш:  618e5aae1be8b7535196849bc5381a2a62cc7bc4b5521416b26d5b7720599965 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,763 [INFO] Хэш:  f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,766 [INFO] Хэш:  f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,770 [INFO] Хэш:  ab94c82daf107e2426f127a55fbf9f49337317f36c5a6c49d71237c88683671d для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,773 [INFO] Хэш:  33680e15c36c5f41ef985f341980d831b53e2c910551df5a93f6c151c4916ccd для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,777 [INFO] Хэш:  ab94c82daf107e2426f127a55fbf9f49337317f36c5a6c49d71237c88683671d для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,779 [INFO] Хэш:  def58c21e714bdd808569bf625c2398cbcf06a218fc98316881993b2ea0f230e для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,781 [INFO] Хэш:  33680e15c36c5f41ef985f341980d831b53e2c910551df5a93f6c151c4916ccd для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,783 [INFO] Хэш:  def58c21e714bdd808569bf625c2398cbcf06a218fc98316881993b2ea0f230e для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,786 [INFO] Хэш:  33680e15c36c5f41ef985f341980d831b53e2c910551df5a93f6c151c4916ccd для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,788 [INFO] Хэш:  f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,789 [INFO] Хэш:  33680e15c36c5f41ef985f341980d831b53e2c910551df5a93f6c151c4916ccd для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,791 [INFO] Хэш:  618e5aae1be8b7535196849bc5381a2a62cc7bc4b5521416b26d5b7720599965 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,792 [INFO] Хэш:  f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,795 [INFO] Хэш:  ab94c82daf107e2426f127a55fbf9f49337317f36c5a6c49d71237c88683671d для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,797 [INFO] Хэш:  ab94c82daf107e2426f127a55fbf9f49337317f36c5a6c49d71237c88683671d для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,799 [INFO] Хэш:  618e5aae1be8b7535196849bc5381a2a62cc7bc4b5521416b26d5b7720599965 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,801 [INFO] Хэш:  33680e15c36c5f41ef985f341980d831b53e2c910551df5a93f6c151c4916ccd для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,802 [INFO] Хэш:  f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,804 [INFO] Хэш:  618e5aae1be8b7535196849bc5381a2a62cc7bc4b5521416b26d5b7720599965 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,806 [INFO] Хэш:  ab94c82daf107e2426f127a55fbf9f49337317f36c5a6c49d71237c88683671d для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,809 [INFO] Хэш:  def58c21e714bdd808569bf625c2398cbcf06a218fc98316881993b2ea0f230e для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,810 [INFO] Хэш:  def58c21e714bdd808569bf625c2398cbcf06a218fc98316881993b2ea0f230e для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,811 [INFO] Хэш:  ab94c82daf107e2426f127a55fbf9f49337317f36c5a6c49d71237c88683671d для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,813 [INFO] Хэш:  f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,814 [INFO] Хэш:  618e5aae1be8b7535196849bc5381a2a62cc7bc4b5521416b26d5b7720599965 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,816 [INFO] Хэш:  33680e15c36c5f41ef985f341980d831b53e2c910551df5a93f6c151c4916ccd для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,816 [INFO] Отправка события в Kafka: [<coroutine object AIOKafkaProducer.send at 0x7f384fdf5f80>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf60c0>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6200>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6340>, <coroutine object AIOKafkaProducer.send at 0x7f384fdf6480>]
+2025-08-17 15:54:09,817 [INFO] Хэш:  618e5aae1be8b7535196849bc5381a2a62cc7bc4b5521416b26d5b7720599965 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,819 [INFO] Хэш:  f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,824 [INFO] Хэш:  ab94c82daf107e2426f127a55fbf9f49337317f36c5a6c49d71237c88683671d для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,826 [INFO] Хэш:  f1833d3650a8b2dec31621ce7e83a9aeb2310548fc474e9de58975d066869c05 для события play есть в памяти, ttl:604797
+2025-08-17 15:54:09,826 [INFO] Хэш:  33680e15c36c5f41ef985f341980d831b53e2c910551df5a93f6c151c4916ccd для события play есть в памяти, ttl:604797
+2025-08-17 16:01:42,394 [WARNING] Получен сигнал остановки, завершаем работу...
+2025-08-17 16:01:42,396 [WARNING] Останавливаем консьюмеры...
+2025-08-17 16:01:42,401 [WARNING] Останавливаем консьюмеры...
+2025-08-17 16:01:42,423 [INFO] Все консьюмеры остановлены
