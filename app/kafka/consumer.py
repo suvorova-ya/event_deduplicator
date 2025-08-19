@@ -73,9 +73,11 @@ class MessageProcessor:
         if is_unique:
             return {
                 "client_id": event.client_id,
-                "product_id": event.product_id,
                 "event_datetime": event.event_datetime,
                 "event_name": event.event_name,
+                "product_id": event.product_id,
+                "sid": event.sid,
+                "r": event.r,
                 "event_json": event.model_dump(mode="json"),
             }
         return None

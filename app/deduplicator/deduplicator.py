@@ -55,7 +55,6 @@ class Deduplicator:
             "product_id": event.get("product_id"),
             "sid": event.get("sid","-"),
             "r": event.get("r"),
-            "ts": event.get("ts")
         }
         data = json.dumps(fields)
 
@@ -69,21 +68,26 @@ class Deduplicator:
     async def check_redis(self, event: dict):
         start = time.perf_counter()
         hash_value = self.compute_hash(event)
-        if await self.redis.exists(hash_value):
+
+        # атомарная бронь ключа: только один поток её получит
+        ok = await self.redis.set(hash_value, event.get('r'), ex=self.ttl, nx=True)
+
+        if not ok:
+            # ключ уже есть => дубль
             current_ttl = await self.redis.ttl(hash_value)
-            logger.info(f"Хэш:  {hash_value} для события {event.get('event_name')} есть в памяти, ttl:{current_ttl}")
-            perf_logger.info(f"⏱️ check_redis занял {time.perf_counter() - start:.3f} сек")
+            logger.info(
+                "Дубль: %s (event=%s) ttl=%s", hash_value, event.get('event_name'), current_ttl )
+            perf_logger.info("⏱️ check_redis занял %.3f сек", time.perf_counter() - start)
             return False
 
-        if await self.redis.bf().exists(self.bloom_name, hash_value):
-            logger.info(f"Хэш:  {hash_value} для события {event.get('event_name')} есть в памяти bloom_filter")
-            return False
+        try:
+            await self.redis.bf().add(self.bloom_name, hash_value)
+            logger.info("Уникально: %s — добавили в Bloom", hash_value)
+        except Exception:
+            # не валим поток из-за Bloom; ключ уже забронирован
+            logger.exception("Не удалось добавить в Bloom для %s", hash_value)
 
-        await self.redis.setex(hash_value, self.ttl, event.get('r'))
-        logger.info(f"Добавляем в Bloom-фильтр: {hash_value}")
-        await self.redis.bf().add(self.bloom_name, hash_value)
-        perf_logger.info(
-            f"Уникальное событие, добавлено в Redis и Bloom: {hash_value} по времени заняло: {time.perf_counter() - start:.3f}")
+        perf_logger.info("Уникальное событие: %s; заняло %.3f сек", hash_value, time.perf_counter() - start )
         return True
 
 

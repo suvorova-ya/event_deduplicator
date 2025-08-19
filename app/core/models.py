@@ -17,6 +17,8 @@ class EventBase(Base):
     event_datetime: Mapped[datetime] = mapped_column(TIMESTAMP(timezone=True), nullable=False, index=True)
     event_name: Mapped[str] = mapped_column(String(256), nullable=True)
     product_id: Mapped[str] = mapped_column(String(64), nullable=False)
+    sid: Mapped[str] = mapped_column(String(64), nullable=False)
+    r: Mapped[str] = mapped_column(String(64), nullable=False)
     event_json: Mapped[Dict[str, Any]] = mapped_column(JSONB, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(UTC))
 

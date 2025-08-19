@@ -17,7 +17,7 @@ file_handler = RotatingFileHandler(log_file, maxBytes=5_000_000, backupCount=3)
 file_handler.setFormatter(formatter)
 
 logger = logging.getLogger("product_logger")
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.WARNING)
 logger.addHandler(file_handler)
 logger.addHandler(logging.StreamHandler())  # для stdout
 
@@ -27,7 +27,7 @@ perf_file_handler = RotatingFileHandler(perf_file, maxBytes=5_000_000, backupCou
 perf_file_handler.setFormatter(formatter)
 
 perf_logger = logging.getLogger("perf_logger")
-perf_logger.setLevel(logging.INFO)
+perf_logger.setLevel(logging.WARNING)
 perf_logger.addHandler(perf_file_handler)
 perf_logger.propagate = False
 # perf_logger.addHandler(logging.StreamHandler()) # для stdout
