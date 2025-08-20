@@ -87,7 +87,7 @@ class Deduplicator:
             # не валим поток из-за Bloom; ключ уже забронирован
             logger.exception("Не удалось добавить в Bloom для %s", hash_value)
 
-        perf_logger.info("Уникальное событие: %s; заняло %.3f сек", hash_value, time.perf_counter() - start )
+        perf_logger.info("Уникальное событие: %s; заняло check_redis %.3f сек", hash_value, time.perf_counter() - start )
         return True
 
 

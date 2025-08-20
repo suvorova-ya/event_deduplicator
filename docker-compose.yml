@@ -11,7 +11,7 @@ services:
       - KAFKA_CFG_NODE_ID=0
       - KAFKA_CFG_PROCESS_ROLES=controller,broker
       - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka:9094
-      - KAFKA_CFG_NUM_PARTITIONS=10
+      - KAFKA_CFG_NUM_PARTITIONS=5
       - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,EXTERNAL://:9093,CONTROLLER://:9094
       - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092,EXTERNAL://localhost:9093
       - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=PLAINTEXT:PLAINTEXT,EXTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT
@@ -205,22 +205,13 @@ services:
     environment:
       GF_SECURITY_ADMIN_USER: ${GF_ADMIN}
       GF_SECURITY_ADMIN_PASSWORD: ${GF_PASSWORD}
-
     ports:
       - 3000:3000
     volumes:
-      - grafana_data:/var/lib/grafana
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+      - ./grafana/provisioning:/etc/grafana/provisioning
     depends_on:
       - prometheus
-    networks:
-      - app_net
-
-  loki:
-    image: grafana/loki:latest
-    container_name: loki
-    ports:
-      - "3100:3100"
-    command: -config.file=/etc/loki/local-config.yaml
     networks:
       - app_net
 
@@ -259,7 +250,7 @@ services:
       - DATA_SOURCE_PASS=${DB_PASSWORD}
       - PG_EXPORTER_AUTO_DISCOVER_DATABASES=true
     command:
-      - --extend.query-path=/queries.yaml   # раз монтируешь queries.yaml
+      - --extend.query-path=/queries.yaml
     volumes:
       - ./queries.yaml:/queries.yaml
     ports:
